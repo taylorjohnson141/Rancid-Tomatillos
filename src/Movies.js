@@ -21,28 +21,31 @@ class Movies extends Component{
   
   getMovies(){
     return this.state.movies.map(movie => {
-      return movie.title
+      return( <section>
+        <img src = {movie.backdrop_path}></img>
+        <img src = {movie.poster_path}></img>
+        <article>
+        <div>{movie.title}</div>
+          <div>{movie.average_rating}</div>
+          <div>{movie.release_date} </div>
+        </article>
+        </section>
+      )
+  
     })
 
   }
   
   render() {
     return (
-      <div>
-        <ul className="list-group list-group-flush">
-          {this.getMovies()}
-        </ul>
-      </div>
+      <section>
+        {this.getMovies()}
+      </section>
     );
   }
 
 }
-async function letfindMovies(){
-  let promise = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-  let response = await promise.json()
-  let movies = response.movies
-  return movies
-}
+
 
 
 
