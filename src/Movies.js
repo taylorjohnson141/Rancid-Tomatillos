@@ -12,16 +12,14 @@ class Movies extends Component{
         
      }
      
-    }
-    componentDidMount(){
+    async componentDidMount(){
       let promise = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       let response = await promise.json()
       let movies = response.movies
-      return movies
+      this.setState({movies:movies})
     }
   
   getMovies(){
-    console.log(this.state.movies)
     return this.state.movies.map(movie => {
       return movie.title
     })
