@@ -11,7 +11,13 @@ class Login extends Component{
   }
   render() {
     return (
-      <
+      <form>
+        <label for = "email">Email</label>
+        <input type = 'text' id ='email' name= "email"></input>
+        <label for ="password">Password</label>
+        <input type = "text" id="password" name="password"></input>
+        <input type="submit" value="Submit"></input>
+      </form>
     )
   }
 
