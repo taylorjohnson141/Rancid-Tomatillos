@@ -6,8 +6,10 @@ import Header from './Header.js';
 
 function App() {
   return (
-       <Header />
+    <React.Fragment>
+        <Header/>
        <Movies/>
+    </React.Fragment>
   );
 }
 
