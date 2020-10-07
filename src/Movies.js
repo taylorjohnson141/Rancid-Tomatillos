@@ -21,13 +21,12 @@ class Movies extends Component{
   
   getMovies(){
     return this.state.movies.map(movie => {
-      return( <section>
-        <img src = {movie.backdrop_path}></img>
+      return( <section className = 'movie-section'>
         <img src = {movie.poster_path}></img>
         <article>
-        <div>{movie.title}</div>
-          <div>{movie.average_rating}</div>
-          <div>{movie.release_date} </div>
+        <h2 className = 'movie-title'>{movie.title}</h2>
+          <div>Average Rating:{movie.average_rating}</div>
+          <div>Release Date:{movie.release_date} </div>
         </article>
         </section>
       )
@@ -38,7 +37,7 @@ class Movies extends Component{
   
   render() {
     return (
-      <section>
+      <section className = 'movie-container'>
         {this.getMovies()}
       </section>
     );
