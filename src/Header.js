@@ -18,6 +18,9 @@ class Header extends Component{
 
 
   render(){
+    if(this.state.displayLogin ){
+      return <Login/>
+    }
     return (
       <>
       {this.state.displayLogin && <Login/>}
