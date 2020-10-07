@@ -11,7 +11,7 @@ class Login extends Component{
     }
   }
   
-  handleChange(){
+  handleChange(event){
     let name = event.target.name
     this.setState({[name]:event.target.value})
   }
@@ -29,3 +29,4 @@ class Login extends Component{
 
 
 }
+export default Login
