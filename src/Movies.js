@@ -24,9 +24,9 @@ class Movies extends Component{
       return( <section className = 'movie-section'>
         <img src = {movie.poster_path}></img>
         <article>
-        <div>{movie.title}</div>
-          <div>{movie.average_rating}</div>
-          <div>{movie.release_date} </div>
+        <div>Title :{movie.title}</div>
+          <div>Average Rating:{movie.average_rating}</div>
+          <div>Release Date:{movie.release_date} </div>
         </article>
         </section>
       )
