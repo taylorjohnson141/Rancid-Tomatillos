@@ -1,13 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Login from './Login.js'
+const { Component } = require("react")
 
-class Header extends Component() {
+
+class Header extends Component{
+  constructor(){
+    super()
+    this.state = {
+      displayLogin:false
+    }
+  }
+  
+  displayLogin = () =>{
+    console.log('hello')
+    this.setState({displayLogin:true})
+  }
+
 
   render(){
     return (
+      <>
+      {this.state.displayLogin && <Login/>}
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
-      <button className='login-button' onClick= {this.ch}>Login</button>
+      <button className='login-button' onClick= {this.displayLogin}>Login</button>
           {/* <button className='logout-button'>Logout</button> */}
         </section>
         <section className='genre-dropdown'>
@@ -21,6 +37,7 @@ class Header extends Component() {
           </div>
         </section>
       </header>
+      </>
     )
   } 
 }
