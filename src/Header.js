@@ -23,7 +23,6 @@ class Header extends Component{
     }
     return (
       <>
-      {this.state.displayLogin && <Login/>}
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
       <button className='login-button' onClick= {this.displayLogin}>Login</button>
