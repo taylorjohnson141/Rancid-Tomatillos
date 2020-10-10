@@ -5,6 +5,11 @@ body{
 img {
   max-width:100%;
 }
+
+article {
+  margin: 10px;
+}
+
 .movie-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -12,6 +17,7 @@ img {
 }
 .movie-section{
   border: 4px solid black;
+  background: #BB9325;
 }
 
 form {
@@ -74,6 +80,7 @@ input {
   grid-row: 3 / 4;
   display: flex;
   align-content: flex-end;
+  flex-direction: column;
 }
 
 .genre-dropdown-button {
