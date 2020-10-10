@@ -15,6 +15,13 @@ class Login extends Component{
     let name = event.target.name
     this.setState({[name]:event.target.value})
   }
+  handleSubmit = (event) =>{
+    console.log(this.state)
+    event.preventDefault();
+    if(this.state.email === 'sam@turing.io' && String(this.state.password) ==='123456' )
+    console.log('works')
+  }
+  
   render() {
     return (
       <form onSubmit = {this.handleSubmit}>
