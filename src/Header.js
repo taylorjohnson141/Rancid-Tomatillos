@@ -15,11 +15,11 @@ class Header extends Component{
       <>
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
-      <button className='login-button' onClick= {this.props.changeLogin}>Login</button>
+          <button className='login-button' onClick= {this.props.changeLogin}>Login</button>
           {/* <button className='logout-button'>Logout</button> */}
         </section>
         <section className='genre-dropdown'>
-          <button className='genre-dropdown'>Select Genre
+          <button className='genre-dropdown-button'>Select Genre
             <i className="fa fa-caret-down"></i>
           </button>
           <div className="dropdown-content">
@@ -31,7 +31,7 @@ class Header extends Component{
       </header>
       </>
     )
-  } 
+  }
 }
 
 export default Header;

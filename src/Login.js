@@ -10,7 +10,7 @@ class Login extends Component{
       error :''
     }
   }
-  
+
   handleChange = (event)=>{
     let name = event.target.name
     this.setState({[name]:event.target.value})
@@ -29,7 +29,7 @@ class Login extends Component{
         <input type = 'text' value={this.state.email} name ='email' onChange={this.handleChange} ></input>
         <label for ="password">Password</label>
         <input type = "text" value={this.state.password} name ='password' onChange={this.handleChange} ></input>
-        <input type="submit" value="Submit"></input>
+        <input className="submit-login" type="submit" value="Submit"></input>
       </form>
     )
   }
