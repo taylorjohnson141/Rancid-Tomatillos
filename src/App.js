@@ -17,13 +17,18 @@ class App extends Component{
   changeLogin = () => {
     this.setState({isLoginPage:true})
   }
+  addUser = (user) =>{
+    this.setState({userLoggedIn:true})
+    this.setState({user})
+
+  }
   render () {
     if(this.state.isLoginPage){
       return <Login/>
     }
     return (
     <React.Fragment>
-    <Header changeLogin = {this.changeLogin} />
+    <Header changeLogin = {this.changeLogin} addUser ={this.addUser} />
    <Movies/>
   </React.Fragment>
     )
