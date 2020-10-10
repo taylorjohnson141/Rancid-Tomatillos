@@ -18,8 +18,10 @@ class Login extends Component{
   handleSubmit = (event) =>{
     console.log(this.state)
     event.preventDefault();
-    if(this.state.email === 'sam@turing.io' && String(this.state.password) ==='123456' )
-    console.log('works')
+    if(this.state.email === 'sam@turing.io' && String(this.state.password) ==='123456' ){
+      this.props.addUser(this.state)
+    }
+    
   }
 
   

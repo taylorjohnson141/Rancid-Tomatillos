@@ -18,18 +18,33 @@ class App extends Component{
     this.setState({isLoginPage:true})
   }
   addUser = (user) =>{
-    this.setState({userLoggedIn:true})
-    this.setState({user})
-
-  }
+    console.log(user)
+    let data = {
+      email:user.email, 
+      password: String(user.password)
+        }
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/login',
+    {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body : JSON.stringify(data) 
+    })
+    .then(response =>response.json() )
+    .then(userData =>{
+      this.setState({userLoggedIn:true})
+      this.setState({user:userData})
+    })
+    }
   render () {
     if(this.state.isLoginPage){
-      return <Login/>
+      return <Login addUser ={this.addUser} />
     }
     return (
     <React.Fragment>
-    <Header changeLogin = {this.changeLogin} addUser ={this.addUser} />
-   <Movies/>
+    <Header changeLogin = {this.changeLogin} />
+   <Movies userLoggedIn = {this.state.userLoggedIn}/>
   </React.Fragment>
     )
     }
