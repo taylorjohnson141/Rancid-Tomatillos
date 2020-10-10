@@ -9,14 +9,16 @@ class App extends Component{
   constructor(){
     super()
     this.state = {
-      isLogin:false
+      isLoginPage:false,
+      userLoggedIn:false,
+      user:''
     }
   }
   changeLogin = () => {
-    this.setState({isLogin:true})
+    this.setState({isLoginPage:true})
   }
   render () {
-    if(this.state.isLogin){
+    if(this.state.isLoginPage){
       return <Login/>
     }
     return (
