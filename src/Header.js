@@ -7,25 +7,15 @@ class Header extends Component{
   constructor(){
     super()
     this.state = {
-      displayLogin:false
     }
   }
-  
-  displayLogin = () =>{
-    console.log('hello')
-    this.setState({displayLogin:true})
-  }
-
 
   render(){
-    if(this.state.displayLogin ){
-      return <Login/>
-    }
     return (
       <>
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
-      <button className='login-button' onClick= {this.displayLogin}>Login</button>
+      <button className='login-button' onClick= {this.props.changeLogin}>Login</button>
           {/* <button className='logout-button'>Logout</button> */}
         </section>
         <section className='genre-dropdown'>
