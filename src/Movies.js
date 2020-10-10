@@ -8,8 +8,7 @@ class Movies extends Component{
     super();
     this.state = {
       movies : []
-      }
-        
+      } 
      }
      
     async componentDidMount(){
