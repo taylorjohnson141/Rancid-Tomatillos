@@ -35,6 +35,7 @@ class App extends Component{
     .then(userData =>{
       this.setState({userLoggedIn:true})
       this.setState({user:userData})
+      console.log(this.state.user)
     })
     }
   render () {
