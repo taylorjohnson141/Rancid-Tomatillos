@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Header.js';
 import Login from './Login';
 
+
 class App extends Component{
   constructor(){
     super()
@@ -15,7 +16,11 @@ class App extends Component{
     }
   }
   changeLogin = () => {
-    this.setState({isLoginPage:true})
+    if(!this.state.isLoginPage) {
+      this.setState({isLoginPage:true})
+    } else {
+      this.setState({isLoginPage:false})
+    }
   }
   clickLogout = () => {
     this.setState({userLoggedIn:false})
@@ -43,11 +48,11 @@ class App extends Component{
     }
   render () {
     if(this.state.isLoginPage){
-      return <Login addUser ={this.addUser} />
+      return <Login addUser ={this.addUser} changeLogin = {this.changeLogin}/>
     }
     return (
     <React.Fragment>
-      <Header changeLogin = {this.changeLogin} />
+      <Header changeLogin = {this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
       <Movies userLoggedIn = {this.state.userLoggedIn}/>
     </React.Fragment>
     )
