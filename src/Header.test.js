@@ -18,4 +18,15 @@ describe('Header', () => {
     expect(screen.getByText('Login')).toBeInTheDocument();
   })
 
+  it('should render a header with logout button when user is logged in', () => {
+    render(<Header
+      userLoggedIn={true}
+      changeLogin={() => {}}
+      clickLogout={() => {}}
+      />
+    )
+    //SETUP
+      // Render the Header with correct props passed in
+    expect(screen.getByText('Logout')).toBeInTheDocument();
+  })
 })
