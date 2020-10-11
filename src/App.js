@@ -43,8 +43,20 @@ class App extends Component{
     .then(response =>response.json() )
     .then(userData =>{
       this.setState({userLoggedIn:true})
-      this.setState({user:userData})
+      this.setState({user:userData.user})
+      console.log('hello',this.state.user.id)
+      this.getRatings()
     })
+    }
+    getRatings = () =>{
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${this.state.user.id}/ratings`)
+      .then(data =>data.json())
+      .then(ratings => {
+        console.log(ratings.ratings)
+        this.setState({ratings:ratings.ratings})
+      console.log(this.state.ratings)
+      })
+        
     }
   render () {
     if(this.state.isLoginPage){
@@ -53,7 +65,7 @@ class App extends Component{
     return (
     <React.Fragment>
       <Header changeLogin = {this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
-      <Movies userLoggedIn = {this.state.userLoggedIn}/>
+      <Movies userLoggedIn = {this.state.userLoggedIn} ratings ={this.state.ratings}/>
     </React.Fragment>
     )
     }
