@@ -20,11 +20,12 @@ class Login extends Component{
     event.preventDefault();
     if(this.state.email === 'sam@turing.io' && String(this.state.password) ==='123456' ){
       this.props.addUser(this.state)
+      this.props.changeLogin()
     }
-    
+
   }
 
-  
+
   render() {
     return (
       <form onSubmit = {this.handleSubmit}>
