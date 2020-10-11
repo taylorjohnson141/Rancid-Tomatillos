@@ -14,9 +14,9 @@ class Header extends Component{
   render(){
     let button = ''
     if(!this.props.userLoggedIn) {
-      button = <button className='login-button' onClick= {this.props.changeLogin}>Login</button>
+      button = <button className='login-button' name='Login' onClick= {this.props.changeLogin}>Login</button>
     } else {
-      button = <button className='logout-button' onClick= {this.props.clickLogout}>Logout</button>
+      button = <button className='logout-button' name='Logout' onClick= {this.props.clickLogout}>Logout</button>
     }
     return (
       <>
