@@ -46,4 +46,18 @@ describe('Header', () => {
 
     expect(screen.queryByText('Logout')).toBeNull();
   })
+
+  it('should render a header without login button when user is logged in', () => {
+
+    //SETUP
+      // Render the Header with correct props passed in
+    render(<Header
+      userLoggedIn={true}
+      changeLogin={() => {}}
+      clickLogout={() => {}}
+      />
+    )
+
+    expect(screen.queryByText('Login')).toBeNull();
+  })
 })
