@@ -22,14 +22,22 @@ class Movies extends Component{
       this.setState({clicked:true})
       this.setState({id:id})
     }
-    
+    findIfMovieHasUserRating(id){
+      let currentMovie = this.props.rating.find(movie =>{
+        return movie.id === id
+      })
+      if(currentMovie){
+        return currentMovie.rating
+      }
+      else return currentMovie
+    }
   getMovies(){
     return this.state.movies.map(movie => {
       return( <section className = 'movie-section' id ={movie.id} onClick = {this.findMovie}>
         <img src = {movie.poster_path}></img>
         <article>
         <h2 className = 'movie-title'>{movie.title}</h2>
-          <div>Average Rating:{movie.average_rating}</div>
+          <div>Average Rating:{this.findIfMovieHasUserRating() || movie.average_rating}</div>
           <div>Release Date:{movie.release_date} </div>
         </article>
         </section>

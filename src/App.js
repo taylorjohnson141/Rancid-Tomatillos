@@ -44,10 +44,10 @@ class App extends Component{
     .then(userData =>{
       this.setState({userLoggedIn:true})
       this.setState({user:userData})
-      console.log(this.state.user)
+      this.getRatings()
     })
     }
-    getRatings(){
+    getRatings = () =>{
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${this.state.user.id}/ratings`)
       .then(data =>data.json())
       .then(ratings => this.setState({ratings:ratings.ratings}))
@@ -59,7 +59,7 @@ class App extends Component{
     return (
     <React.Fragment>
       <Header changeLogin = {this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
-      <Movies userLoggedIn = {this.state.userLoggedIn}/>
+      <Movies userLoggedIn = {this.state.userLoggedIn} ratings ={this.state.ratings}/>
     </React.Fragment>
     )
     }
