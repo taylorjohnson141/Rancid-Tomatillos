@@ -23,13 +23,19 @@ class Movies extends Component{
       this.setState({id:id})
     }
     findIfMovieHasUserRating(id){
-      let currentMovie = this.props.rating.find(movie =>{
-        return movie.id === id
+      console.log(this.props.ratings)
+      if(this.props.ratings === undefined){
+        return undefined
+      }
+
+      let currentMovie = this.props.ratings.find(movie =>{
+        return movie.movie_id === id
       })
+      console.log('currentMovie',currentMovie)
       if(currentMovie){
         return currentMovie.rating
       }
-      else return currentMovie
+      else {return currentMovie}
     }
   getMovies(){
     return this.state.movies.map(movie => {
@@ -37,7 +43,8 @@ class Movies extends Component{
         <img src = {movie.poster_path}></img>
         <article>
         <h2 className = 'movie-title'>{movie.title}</h2>
-          <div>Average Rating:{this.findIfMovieHasUserRating() || movie.average_rating}</div>
+        {this.findIfMovieHasUserRating(movie.id)  && <div>Your Rating:{this.findIfMovieHasUserRating(movie.id)}</div>}
+          <div>Average Rating:{movie.average_rating}</div>
           <div>Release Date:{movie.release_date} </div>
         </article>
         </section>

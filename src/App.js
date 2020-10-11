@@ -43,14 +43,20 @@ class App extends Component{
     .then(response =>response.json() )
     .then(userData =>{
       this.setState({userLoggedIn:true})
-      this.setState({user:userData})
+      this.setState({user:userData.user})
+      console.log('hello',this.state.user.id)
       this.getRatings()
     })
     }
     getRatings = () =>{
       fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${this.state.user.id}/ratings`)
       .then(data =>data.json())
-      .then(ratings => this.setState({ratings:ratings.ratings}))
+      .then(ratings => {
+        console.log(ratings.ratings)
+        this.setState({ratings:ratings.ratings})
+      console.log(this.state.ratings)
+      })
+        
     }
   render () {
     if(this.state.isLoginPage){
