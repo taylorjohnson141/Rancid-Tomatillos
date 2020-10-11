@@ -47,6 +47,11 @@ class App extends Component{
       console.log(this.state.user)
     })
     }
+    getRatings(){
+      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${this.state.user.id}/ratings`)
+      .then(data =>data.json())
+      .then(ratings => this.setState({ratings:ratings.ratings}))
+    }
   render () {
     if(this.state.isLoginPage){
       return <Login addUser ={this.addUser} changeLogin = {this.changeLogin}/>

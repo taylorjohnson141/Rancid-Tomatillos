@@ -24,16 +24,6 @@ class Header extends Component{
         <section className='user-in-out-placeholder'>
           { button }
         </section>
-        <section className='genre-dropdown'>
-          <button className='genre-dropdown-button'>Select Genre
-            <i className="fa fa-caret-down"></i>
-          </button>
-          <div className="dropdown-content">
-            <a href="#">Drama</a>
-            <a href="#">Adventure</a>
-            <a href="#">Horror</a>
-          </div>
-        </section>
       </header>
       </>
     )
