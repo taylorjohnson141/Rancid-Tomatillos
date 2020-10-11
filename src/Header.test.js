@@ -5,9 +5,17 @@ import userEvent from '@testing-library/user-event';
 import Header from './Header';
 
 describe('Header', () => {
-  it('should render a header', () => {
-    Header.render();
+  it('should render a header with login button when user is not logged in', () => {
+
+    render(<Header
+      userLoggedIn={false}
+      changeLogin={() => {}}
+      clickLogout={() => {}}
+      />
+    )
     //SETUP
       // Render the Header with correct props passed in
-    })
+    expect(screen.getByText('Login')).toBeInTheDocument();
+  })
+
 })
