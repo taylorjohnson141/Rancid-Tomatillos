@@ -1,7 +1,6 @@
 import React from 'react';
-
+import Movie from './Movie'
 const { Component } = require("react")
-
 
 class Movies extends Component{
   constructor(){
@@ -17,10 +16,16 @@ class Movies extends Component{
       let movies = response.movies
       this.setState({movies:movies})
     }
-  
+
+    findMovie = (event) =>{
+      let id =event.target.closest('section').id
+      this.setState({clicked:true})
+      this.setState({id:id})
+    }
+    
   getMovies(){
     return this.state.movies.map(movie => {
-      return( <section className = 'movie-section'>
+      return( <section className = 'movie-section' id ={movie.id} onClick = {this.findMovie}>
         <img src = {movie.poster_path}></img>
         <article>
         <h2 className = 'movie-title'>{movie.title}</h2>
@@ -35,6 +40,9 @@ class Movies extends Component{
   }
   
   render() {
+    if(this.state.clicked){
+      return <Movie id ={this.state.id}/>
+    }
     return (
       <section className = 'movie-container'>
         {this.getMovies()}

@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Header.js';
 import Login from './Login';
 
+
 class App extends Component{
   constructor(){
     super()
@@ -15,21 +16,29 @@ class App extends Component{
     }
   }
   changeLogin = () => {
-    this.setState({isLoginPage:true})
+    if(!this.state.isLoginPage) {
+      this.setState({isLoginPage:true})
+    } else {
+      this.setState({isLoginPage:false})
+    }
+  }
+  clickLogout = () => {
+    this.setState({userLoggedIn:false})
+    this.setState({user:''})
   }
   addUser = (user) =>{
     console.log(user)
     let data = {
-      email:user.email, 
+      email:user.email,
       password: String(user.password)
         }
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/login',
     {
-    method: 'POST', 
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body : JSON.stringify(data) 
+    body : JSON.stringify(data)
     })
     .then(response =>response.json() )
     .then(userData =>{
@@ -40,16 +49,16 @@ class App extends Component{
     }
   render () {
     if(this.state.isLoginPage){
-      return <Login addUser ={this.addUser} />
+      return <Login addUser ={this.addUser} changeLogin = {this.changeLogin}/>
     }
     return (
     <React.Fragment>
-    <Header changeLogin = {this.changeLogin} />
-   <Movies userLoggedIn = {this.state.userLoggedIn}/>
-  </React.Fragment>
+      <Header changeLogin = {this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
+      <Movies userLoggedIn = {this.state.userLoggedIn}/>
+    </React.Fragment>
     )
     }
-  
+
 }
 
 export default App;
