@@ -60,4 +60,22 @@ describe('Header', () => {
 
     expect(screen.queryByText('Login')).toBeNull();
   })
+
+  it('should invoke changeLogin when the login button is clicked', () => {
+    const fakeChangeLogin = jest.fn();
+    render(<Header
+      userLoggedIn={false}
+      changeLogin={fakeChangeLogin}
+      clickLogout={() => {}}
+    />);
+    //EXECUTION
+      //find the button
+      //click it
+      userEvent.click(screen.getByText('Login'));
+    //ASSERTION
+      //Was removeIdea run?
+      //Was removeIdea run with an argument of 101?
+      expect(fakeChangeLogin).toHaveBeenCalled();
+      expect(fakeChangeLogin).toHaveBeenCalledTimes(1);
+  })
 })
