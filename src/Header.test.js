@@ -78,4 +78,22 @@ describe('Header', () => {
       expect(fakeChangeLogin).toHaveBeenCalled();
       expect(fakeChangeLogin).toHaveBeenCalledTimes(1);
   })
+
+  it('should invoke clickLogout when the logout button is clicked', () => {
+    const fakeClickLogout = jest.fn();
+    render(<Header
+      userLoggedIn={true}
+      changeLogin={() => {}}
+      clickLogout={fakeClickLogout}
+    />);
+    //EXECUTION
+      //find the button
+      //click it
+      userEvent.click(screen.getByText('Logout'));
+    //ASSERTION
+      //Was removeIdea run?
+      //Was removeIdea run with an argument of 101?
+      expect(fakeClickLogout).toHaveBeenCalled();
+      expect(fakeClickLogout).toHaveBeenCalledTimes(1);
+  })
 })
