@@ -4,8 +4,8 @@ import Movies from './Movies'
 import './App.css';
 import Header from './Header.js';
 import Login from './Login';
-
-
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Home from './Home.js';
 class App extends Component{
   constructor(){
     super()
@@ -56,17 +56,19 @@ class App extends Component{
         this.setState({ratings:ratings.ratings})
       console.log(this.state.ratings)
       })
-        
+
     }
   render () {
-    if(this.state.isLoginPage){
-      return <Login addUser ={this.addUser} changeLogin = {this.changeLogin}/>
-    }
+    {/*// if(this.state.isLoginPage){
+    //   return <Login addUser={this.addUser} changeLogin = {this.changeLogin}/>
+    // } */}
     return (
-    <React.Fragment>
-      <Header changeLogin = {this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
-      <Movies userLoggedIn = {this.state.userLoggedIn} ratings ={this.state.ratings}/>
-    </React.Fragment>
+      <Router>
+        <Switch>
+        <Route exact path='/' component={ Home } />
+        <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin}/>}/>
+        </Switch>
+      </Router>
     )
     }
 
