@@ -1,5 +1,5 @@
 import React from 'react'
-const { Component } = require("react")
+import { Component } from 'react';
 
 class Login extends Component{
   constructor(){
@@ -7,7 +7,7 @@ class Login extends Component{
     this.state = {
       email:'',
       name:'',
-      error :''
+      error:''
     }
   }
 
@@ -28,12 +28,12 @@ class Login extends Component{
 
   render() {
     return (
-      <form onSubmit = {this.handleSubmit}>
-        <label for = "email">Email</label>
-        <input type = 'text' value={this.state.email} name ='email' onChange={this.handleChange} ></input>
-        <label for ="password">Password</label>
-        <input type = "text" value={this.state.password} name ='password' onChange={this.handleChange} ></input>
-        <input className="submit-login" type="submit" value="Submit"></input>
+      <form onSubmit={this.handleSubmit}>
+        <label>Email</label>
+        <input type='text' value={this.state.email} name ='email' onChange={this.handleChange} ></input>
+        <label>Password</label>
+        <input type='text' value={this.state.password} name ='password' onChange={this.handleChange} ></input>
+        <input className='submit-login' type='submit' value='Submit'></input>
       </form>
     )
   }
