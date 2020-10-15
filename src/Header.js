@@ -10,13 +10,13 @@ class Header extends Component{
   }
 
   render(){
-   
+  
     return (
       <>
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
           {!this.props.userLoggedIn && <LoginButton/>}
-          {this.props.userLoggedIn && <LogoutButton/>}
+          {this.props.userLoggedIn && <LogoutButton clickLogout = {this.props.clickLogout}/>}
         </section>
       </header>
       </>
