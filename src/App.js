@@ -63,7 +63,7 @@ class App extends Component{
     return (
       <main>
         <Switch>
-          <Route exact path='/' component={ Home } />
+    <Route exact path='/' render={(props) => <Home {...props} changeLogin={this.state.changeLogin} userLoggedIn={this.state.userLoggedIn} clickLogout={this.state.clickLogout} ratings={this.state.ratings}/>} />
           <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin} isLoginPage={this.state.isLoginPage}/>}/>
         </Switch>
       </main>

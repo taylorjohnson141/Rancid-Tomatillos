@@ -11,8 +11,8 @@ class Home extends Component {
   render() {
     return (
       <section>
-        <Header changeLogin={this.changeLogin} userLoggedIn={this.state.userLoggedIn} clickLogout={this.clickLogout} />
-        <Movies userLoggedIn={this.state.userLoggedIn} ratings={this.state.ratings}/>
+        <Header changeLogin={this.props.changeLogin} userLoggedIn={this.props.userLoggedIn} clickLogout={this.props.clickLogout} />
+        <Movies userLoggedIn={this.props.userLoggedIn} ratings={this.props.ratings}/>
       </section>
     )
   }
