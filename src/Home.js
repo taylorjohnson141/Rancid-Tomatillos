@@ -1,7 +1,7 @@
-import React from 'react';
-import { Component } from 'react';
-import Header from './Header.js';
-import Movies from './Movies.js';
+import React, { Component } from 'react';
+import Header from './Header';
+import Movies from './Movies';
+
 class Home extends Component {
   constructor() {
     super()
@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <section>
-        <Header changeLogin={this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
+        <Header changeLogin={this.changeLogin} userLoggedIn={this.state.userLoggedIn} clickLogout={this.clickLogout} />
         <Movies userLoggedIn={this.state.userLoggedIn} ratings={this.state.ratings}/>
       </section>
     )

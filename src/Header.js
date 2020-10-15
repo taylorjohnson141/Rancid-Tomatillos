@@ -1,8 +1,6 @@
-import React from 'react';
-import Login from './Login.js'
-import App from './App.js'
-import { Component } from 'react';
-import LoginButton from './LoginButton.js';
+import React, { Component } from 'react';
+import Login from './Login'
+import LoginButton from './LoginButton';
 
 class Header extends Component{
   constructor(){

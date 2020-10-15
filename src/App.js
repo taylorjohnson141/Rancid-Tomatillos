@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Movies from './Movies'
-import './App.css';
-import Header from './Header.js';
-import Login from './Login';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Home from './Home.js';
+import './App.css';
+import Home from './Home';
+import Header from './Header';
+import Login from './Login';
+import Movies from './Movies'
+
 class App extends Component{
   constructor(){
     super()
@@ -59,16 +59,14 @@ class App extends Component{
 
     }
   render () {
-    {/*// if(this.state.isLoginPage){
-    //   return <Login addUser={this.addUser} changeLogin = {this.changeLogin}/>
-    // } */}
+
     return (
-      <Router>
+      <main>
         <Switch>
-        <Route exact path='/' component={ Home } />
-        <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin}/>}/>
+          <Route exact path='/' component={ Home } />
+          <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin} isLoginPage={this.state.isLoginPage}/>}/>
         </Switch>
-      </Router>
+      </main>
     )
     }
 
