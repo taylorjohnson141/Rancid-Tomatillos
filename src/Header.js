@@ -20,7 +20,8 @@ class Header extends Component{
       <>
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
-          < LoginButton />
+          { !this.props.userLoggedIn && < LoginButton />}
+          {this.props.userLoggedIn && <LogoutButton/>}
         </section>
       </header>
       </>
