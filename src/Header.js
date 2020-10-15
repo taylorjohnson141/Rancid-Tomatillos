@@ -1,8 +1,6 @@
-import React from 'react';
-import Login from './Login.js'
-import App from './App.js'
-const { Component } = require("react")
-
+import React, { Component } from 'react';
+import Login from './Login'
+import LoginButton from './LoginButton';
 
 class Header extends Component{
   constructor(){
@@ -22,7 +20,7 @@ class Header extends Component{
       <>
       <header className='App-header'>
         <section className='user-in-out-placeholder'>
-          { button }
+          < LoginButton />
         </section>
       </header>
       </>

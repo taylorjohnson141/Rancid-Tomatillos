@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Movies from './Movies'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
-import Header from './Header.js';
+import Home from './Home';
+import Header from './Header';
 import Login from './Login';
-
+import Movies from './Movies'
 
 class App extends Component{
   constructor(){
@@ -56,17 +56,17 @@ class App extends Component{
         this.setState({ratings:ratings.ratings})
       console.log(this.state.ratings)
       })
-        
+
     }
   render () {
-    if(this.state.isLoginPage){
-      return <Login addUser ={this.addUser} changeLogin = {this.changeLogin}/>
-    }
+
     return (
-    <React.Fragment>
-      <Header changeLogin = {this.changeLogin} userLoggedIn = {this.state.userLoggedIn} clickLogout = {this.clickLogout} />
-      <Movies userLoggedIn = {this.state.userLoggedIn} ratings ={this.state.ratings}/>
-    </React.Fragment>
+      <main>
+        <Switch>
+          <Route exact path='/' component={ Home } />
+          <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin} isLoginPage={this.state.isLoginPage}/>}/>
+        </Switch>
+      </main>
     )
     }
 
