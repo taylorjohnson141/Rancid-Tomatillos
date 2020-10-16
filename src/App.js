@@ -5,6 +5,7 @@ import Home from './Home';
 import Header from './Header';
 import Login from './Login';
 import Movies from './Movies'
+import Movie from './Movie';
 
 class App extends Component{
   constructor(){
@@ -63,8 +64,12 @@ class App extends Component{
     return (
       <main>
         <Switch>
-          <Route exact path='/' render={(props) => <Home {...props} changeLogin={this.state.changeLogin} userLoggedIn={this.state.userLoggedIn} clickLogout={this.clickLogout} ratings={this.state.ratings}/>} />
-          <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin} isLoginPage={this.state.isLoginPage}/>}/>
+        <Route exact path='/' render={(props) => <Home {...props} changeLogin={this.state.changeLogin} userLoggedIn={this.state.userLoggedIn} clickLogout={this.clickLogout} ratings={this.state.ratings}/>} />
+        <Route path='/login' render={(props) => <Login {...props} addUser={this.addUser} changeLogin={this.changeLogin} isLoginPage={this.state.isLoginPage}/>}/>
+        <Route  path='/id/:movieId' render={match => {
+            console.log('algo',match.match.params.movieId)
+          return <Movie match = {match.match.params.movieId} />
+        }}/>
         </Switch>
       </main>
     )

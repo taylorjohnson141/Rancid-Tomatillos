@@ -25,6 +25,7 @@ class Login extends Component{
 
 
   render() {
+    console.log('is this broken')
       if(this.props.isLoginPage) {
         return ( <Redirect to='/'/> )
       } else {
