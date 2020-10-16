@@ -35,15 +35,15 @@ class Movies extends Component{
     }
   getMovies(){
     return this.state.movies.map(movie => {
-      return ( <Link  to={`/id/${movie.id}`} className='movie-section' id={movie.id} >
-        <img alt = {movie.id} src={movie.poster_path}></img>
+      return ( <section className='movie-section' id={movie.id} >
+        <Link  to={`/id/${movie.id}`} src={movie.poster_path}> <img src={movie.poster_path} alt = {movie.id} /></Link>
         <article>
           <h2 className='movie-title'>{movie.title}</h2>
           {this.findIfMovieHasUserRating(movie.id)  && <div>Your Rating:{this.findIfMovieHasUserRating(movie.id)}</div>}
           <div>Average Rating:{movie.average_rating}</div>
           <div>Release Date:{movie.release_date} </div>
         </article>
-      </Link>
+      </section>
       )
 
     })
