@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Movie from './Movie'
+import {Link} from 'react-router-dom'
 
 class Movies extends Component{
   constructor(){
@@ -16,11 +17,7 @@ class Movies extends Component{
       this.setState({movies:movies})
     }
 
-    findMovie = (event) => {
-      let id = event.target.closest('section').id
-      this.setState({clicked:true})
-      this.setState({id:id})
-    }
+    
     findIfMovieHasUserRating(id) {
       console.log(this.props.ratings)
       if(this.props.ratings === undefined){
@@ -38,8 +35,8 @@ class Movies extends Component{
     }
   getMovies(){
     return this.state.movies.map(movie => {
-      return ( <section className='movie-section' id={movie.id} onClick={this.findMovie}>
-        <img src={movie.poster_path}></img>
+      return ( <section className='movie-section' id={movie.id} >
+        <Link  to={`/id/${movie.id}`} src={movie.poster_path}> <img src={movie.poster_path} alt = {movie.id} /></Link>
         <article>
           <h2 className='movie-title'>{movie.title}</h2>
           {this.findIfMovieHasUserRating(movie.id)  && <div>Your Rating:{this.findIfMovieHasUserRating(movie.id)}</div>}
