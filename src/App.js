@@ -6,6 +6,9 @@ import Header from './Header';
 import Login from './Login';
 import Movies from './Movies'
 import Movie from './Movie';
+import { getUser } from './apiCalls';
+import { getRatings } from './apiCalls';
+
 
 class App extends Component{
   constructor(){
@@ -16,6 +19,23 @@ class App extends Component{
       user:''
     }
   }
+
+  addUser = (user) => {
+    getUser(this.state.user)
+      .then(user => {
+        this.setState({userLoggedIn:true})
+        this.setState({user:user.user})
+        this.addRatings(this.state.user.id)
+      })
+  }
+
+  addRatings = (id) => {
+    getRatings(id)
+      .then(ratings => {
+      this.setState({ratings:ratings.ratings})
+    })
+  }
+
   changeLogin = () => {
     if(!this.state.isLoginPage) {
       this.setState({isLoginPage:true})
@@ -27,38 +47,7 @@ class App extends Component{
     this.setState({userLoggedIn:false})
     this.setState({user:''})
   }
-  addUser = (user) =>{
-    console.log(user)
-    let data = {
-      email:user.email,
-      password: String(user.password)
-        }
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/login',
-    {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body : JSON.stringify(data)
-    })
-    .then(response =>response.json() )
-    .then(userData =>{
-      this.setState({userLoggedIn:true})
-      this.setState({user:userData.user})
-      console.log('hello',this.state.user.id)
-      this.getRatings()
-    })
-    }
-    getRatings = () =>{
-      fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${this.state.user.id}/ratings`)
-      .then(data =>data.json())
-      .then(ratings => {
-        console.log(ratings.ratings)
-        this.setState({ratings:ratings.ratings})
-      console.log(this.state.ratings)
-      })
 
-    }
   render () {
 
     return (
