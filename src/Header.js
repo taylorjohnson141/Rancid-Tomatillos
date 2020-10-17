@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './Login'
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton'
+
 class Header extends Component{
   constructor(){
     super()
