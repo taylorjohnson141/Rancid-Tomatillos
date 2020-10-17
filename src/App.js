@@ -20,13 +20,12 @@ class App extends Component{
     }
   }
 
-  addUser = (user) => {
-    getUser(this.state.user)
-      .then(user => {
+  addUser = async (user) => {
+    let userInfo = await getUser(user)
+        console.log(userInfo)
         this.setState({userLoggedIn:true})
-        this.setState({user:user.user})
+        this.setState({user:userInfo})
         this.addRatings(this.state.user.id)
-      })
   }
 
   addRatings = (id) => {
@@ -43,9 +42,11 @@ class App extends Component{
       this.setState({isLoginPage:false})
     }
   }
+
   clickLogout = () => {
     this.setState({userLoggedIn:false})
     this.setState({user:''})
+    this.setState({isLoginPage:false})
   }
 
   render () {
