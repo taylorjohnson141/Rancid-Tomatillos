@@ -16,7 +16,6 @@ class Movies extends Component {
       this.setState({movies:movies})
   }
 
-
   findIfMovieHasUserRating(id) {
     if(this.props.ratings === undefined){
       return undefined

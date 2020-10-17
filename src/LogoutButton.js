@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 
 function LogoutButton(props) {
@@ -7,6 +7,6 @@ function LogoutButton(props) {
     <NavLink to='/' className='logout-button' onClick={props.clickLogout}>Logout</NavLink>
   )
 }
- 
-  
+
+
 export default LogoutButton
