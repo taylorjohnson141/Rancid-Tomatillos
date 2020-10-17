@@ -6,7 +6,7 @@ export const getUser = (user) =>{
       email:user.email,
       password: String(user.password)
     }
-  fetch('https://rancid-tomatillos.herokuapp.com/api/v2/login',
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/login',
   {
     method: 'POST',
     headers: {
@@ -16,13 +16,12 @@ export const getUser = (user) =>{
   })
   .then(response =>response.json() )
   .then(currentUser => {
-    theUser = currentUser
+    return currentUser.user
   })
-  return theUser
 }
 
 export const getRatings = (id) =>{
-  fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${id}/ratings`)
+  return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${id}/ratings`)
     .then(data =>data.json())
 }
 
