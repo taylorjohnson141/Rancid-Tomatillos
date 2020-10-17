@@ -4,7 +4,7 @@ import { Router, NavLink } from 'react-router-dom';
 function LoginButton(){
   return (
     <NavLink to='/login' className='login-button'>Login</NavLink>
-)
+  )
 }
     
 
