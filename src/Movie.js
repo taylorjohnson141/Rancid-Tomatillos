@@ -24,10 +24,11 @@ class Movie extends Component {
     )
   }
 
-  async componentDidMount(){
+componentDidMount(){
     const match = this.props.match
-    let movie = await getSingleMovieInfo(match)
-      this.setState({movie:movie.movie})
+    getSingleMovieInfo(match)
+      .then(movie =>
+       this.setState({movie:movie.movie}))
   }
 
 
