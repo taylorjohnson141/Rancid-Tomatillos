@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import "jest-environment-jsdom-sixteen";
-import userEvent from '@testing-library/user-event';
 import { getSingleMovieInfo } from './apiCalls.js';
 jest.mock('./apiCalls.js');
 import Movie from './Movie';

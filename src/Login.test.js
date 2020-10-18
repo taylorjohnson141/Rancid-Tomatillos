@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import "jest-environment-jsdom-sixteen";
-import userEvent from '@testing-library/user-event';
 import { MemoryRouter as Router } from 'react-router-dom';
 jest.mock('./apiCalls.js');
 import Login from './Login';
@@ -22,7 +21,7 @@ import Login from './Login';
         expect(screen.getByText('Password')).toBeInTheDocument();
         expect(screen.getByText('Submit')).toBeInTheDocument();
     })
-    
+
     it('should not render the login page when the value of isLoginPage is true', () => {
       render(
         <Router>
