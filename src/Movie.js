@@ -16,8 +16,8 @@ class Movie extends Component {
       <article>
         <h2 className = 'movie-title'>{movie.title}</h2>
         <h2 className = 'movie-tagline'>{movie.tagline}</h2>
-        <div>Average Rating:{movie.average_rating}</div>
-        <div>Release Date:{movie.release_date} </div>
+        <div>Average Rating: {movie.average_rating}</div>
+        <div>Release Date: {movie.release_date} </div>
         <p>{movie.overview}</p>
       </article>
     </section>
