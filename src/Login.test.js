@@ -22,5 +22,19 @@ import Login from './Login';
         expect(screen.getByText('Password')).toBeInTheDocument();
         expect(screen.getByText('Submit')).toBeInTheDocument();
     })
-  
+    
+    it('should not render the login page when the value of isLoginPage is true', () => {
+      render(
+        <Router>
+          <Login
+            addUser={() => {}}
+            changeLogin={() => {}} isLoginPage={true}
+          />
+        </Router>
+      )
+
+        expect(screen.queryByText('Email')).toBeNull();
+        expect(screen.queryByText('Password')).toBeNull();
+        expect(screen.queryByText('Submit')).toBeNull();
+    })
   })
