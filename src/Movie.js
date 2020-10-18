@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getSingleMovieInfo } from './apiCalls';
 
 class Movie extends Component {
   constructor(prop){
@@ -22,21 +23,12 @@ class Movie extends Component {
     </section>
     )
   }
-  // async componentDidUpdate(){
-  //   console.log('hello')
-  //   const match = this.props.match
-  //   console.log(match)
-  //   let movie = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${match}`)
-  //   let response = await movie.json()
-  //   this.setState({movie:response.movie})
-  // }
-  async componentDidMount(){
-    console.log('hello')
+
+componentDidMount(){
     const match = this.props.match
-    console.log(match)
-    let movie = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${match}`)
-    let response = await movie.json()
-    this.setState({movie:response.movie})
+    getSingleMovieInfo(match)
+      .then(movie =>
+       this.setState({movie:movie.movie}))
   }
 
 

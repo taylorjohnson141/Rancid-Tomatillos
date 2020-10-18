@@ -15,6 +15,7 @@ class Login extends Component{
     let name = event.target.name
     this.setState({[name]:event.target.value})
   }
+  
   handleSubmit = (event) =>{
     event.preventDefault();
     if(this.state.email === 'sam@turing.io' && String(this.state.password) ==='123456' ){
@@ -22,7 +23,6 @@ class Login extends Component{
       this.props.changeLogin()
     }
   }
-
 
   render() {
     console.log('is this broken')
@@ -39,7 +39,5 @@ class Login extends Component{
       )
     }
   }
-
-
 }
 export default Login

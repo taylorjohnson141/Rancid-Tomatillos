@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Router, NavLink } from 'react-router-dom';
 
-function LoginButton(){
+function LoginButton(props){
   return (
-    <NavLink to='/login' className='login-button'>Login</NavLink>
-)
+    <NavLink to='/login' className='login-button' onClick={props.changeLogin}>Login</NavLink>
+  )
 }
-    
+
 
 export default LoginButton;
