@@ -1,53 +1,47 @@
 import React, { Component } from 'react';
 import Movie from './Movie'
 import {Link} from 'react-router-dom'
+import { getMoviesInfo } from './apiCalls';
 
-class Movies extends Component{
-  constructor(){
+class Movies extends Component {
+  constructor() {
     super();
     this.state = {
       movies : []
       }
     }
 
-    async componentDidMount() {
-      let promise = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      let response = await promise.json()
-      let movies = response.movies
+   async componentDidMount() {
+    let movies = await getMoviesInfo()
       this.setState({movies:movies})
-    }
+  }
 
-    
-    findIfMovieHasUserRating(id) {
-      console.log(this.props.ratings)
-      if(this.props.ratings === undefined){
-        return undefined
-      }
-
-      let currentMovie = this.props.ratings.find(movie => {
-        return movie.movie_id === id
-      })
-      console.log('currentMovie',currentMovie)
-      if(currentMovie){
-        return currentMovie.rating
-      }
-      else {return currentMovie}
+  findIfMovieHasUserRating(id) {
+    if(this.props.ratings === undefined){
+      return undefined
     }
-  getMovies(){
+    let currentMovie = this.props.ratings.find(movie => {
+      return movie.movie_id === id
+    })
+    if(currentMovie){
+      return currentMovie.rating
+    }
+    else {return currentMovie}
+  }
+
+  getMovies() {
     return this.state.movies.map(movie => {
       return ( <section className='movie-section' id={movie.id} >
         <Link  to={`/id/${movie.id}`} src={movie.poster_path}> <img src={movie.poster_path} alt = {movie.id} /></Link>
         <article>
           <h2 className='movie-title'>{movie.title}</h2>
           {this.findIfMovieHasUserRating(movie.id)  && <div>Your Rating:{this.findIfMovieHasUserRating(movie.id)}</div>}
-          <div>Average Rating:{movie.average_rating}</div>
+          <div>Average Rating:{movie.average_rating.toFixed(2)}</div>
           <div>Release Date:{movie.release_date} </div>
         </article>
       </section>
       )
-
     })
-
   }
 
   render() {
