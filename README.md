@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Rancid Tomatos</h3>
 
-## Available Scripts
+  <p align="center">
+    Mod 3 Rancid Tomatillos Paired Project
+    <br />
+    <a href="https://github.com/taylorjohnson141/rancid-tomatillos"><strong>Repo Link</strong></a>
+    <br />
+    <br />
+  </p>
+</p>
 
-In the project directory, you can run:
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is part of Turing Software and Designs' Front-End Program, Module . The project focuses on using React to build a movie rating website. Our task is to create a system of components containing methods which would dynamically display a given movie data on the DOM. This project introduces us to React, Router, React Testing, and other related features. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Built With
 
-### `npm test`
+* Node.js
+* React
+* Router
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
+In your terminal:
+1. Clone the repo-
+`git clone git@github.com:taylorjohnson141/rancid-tomatillos.git`
 
-### `npm run build`
+2. Install NPM packages- `npm install`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Run `npm start` to view app in browser
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Architecture
+#### Components
+apiCalls + App:(Login:(), Home:(Header:(LoginButton, LogoutButton), Movies:(Movie))  
+From App you should see the home page which displays the Header and Movies sections. There is a login button at the top that can be clicked to display the login page, from login page you can loging as specified user. Once logged in the logout button takes the place of the login button. The ratings of the user should display when user is logged in, if user has no ratings, no ratings will show. The movies can be clicked to display movie details. You must click the back button to go back to the movies page. When you logout the login button should display, which you can click and login again.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contact
 
-### `npm run eject`
+ [Taylor Johnson](https://github.com/taylorjohnson141)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ [Chadrick Dickerson](https://github.com/chadrick-d-dev)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Project Link: [Rancid Tomatillos](https://github.com/taylorjohnson141/rancid-tomatillos)
