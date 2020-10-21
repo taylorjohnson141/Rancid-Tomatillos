@@ -7,5 +7,4 @@ function LoginButton(props){
   )
 }
 
-
 export default LoginButton;

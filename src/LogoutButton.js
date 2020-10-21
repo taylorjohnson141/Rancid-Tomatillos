@@ -7,5 +7,4 @@ function LogoutButton(props) {
   )
 }
 
-
 export default LogoutButton
